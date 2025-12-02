@@ -1,0 +1,58 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main() {
+    double a, b, c, d, e;
+
+    cout << "===============================\n";
+    cout << "     PRECISION FORMATTER\n";
+    cout << "===============================\n";
+    cout << "Enter five floating-point values:\n";
+
+    if (!(cin >> a >> b >> c >> d >> e)) {
+        cout << "Invalid input! Please enter numeric values.\n";
+        return 0;
+    }
+
+    cout << "\nFormatted output:\n";
+    cout << "--------------------------------\n";
+
+    cout << "A (default):        " << a << endl;
+    cout << fixed << setprecision(2);
+    cout << "B (2 decimals):     " << b << endl;
+
+    cout << fixed << setprecision(6);
+    cout << "C (6 decimals):     " << c << endl;
+
+    cout << fixed << setprecision(2);
+    cout << "D (2 decimals):     " << d << endl;
+
+    cout << fixed << setprecision(0);
+    cout << "E (rounded):        " << e << endl;
+
+    cout << "--------------------------------\n";
+
+
+    double minVal = a;
+    double maxVal = a;
+    double sum = a;
+
+    double arr[5] = { b, c, d, e };
+    for (double x : arr) {
+        if (x < minVal) minVal = x;
+        if (x > maxVal) maxVal = x;
+        sum += x;
+    }
+
+    double avg = sum / 5.0;
+
+    cout << "\nValue analysis:\n";
+    cout << "Min value:   " << minVal << endl;
+    cout << "Max value:   " << maxVal << endl;
+    cout << "Average:     " << avg << endl;
+
+    cout << "===============================\n";
+
+    return 0;
+}
