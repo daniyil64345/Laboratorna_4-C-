@@ -1,0 +1,40 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    bool answer = false;
+    int value;
+
+    cout << "=============================\n";
+    cout << "   MAGIC NUMBER EVALUATOR\n";
+    cout << "=============================\n";
+    cout << "Enter a value: ";
+
+    if (!(cin >> value)) {
+        cout << "Invalid input! Please enter an integer.\n";
+        return 0;
+    }
+
+    cout << "\nChecking conditions...\n";
+
+    bool cond1 = (value >= 0 && value < 10);
+    bool cond2 = (value * 2 < 20 && value - 2 > -2);
+    bool cond3 = (value - 1 > 1 && value / 2 < 10);
+    bool cond4 = (value == 111);
+
+    answer = cond1 || cond2 || cond3 || cond4;
+
+    
+    if (answer) {
+        cout << "Matched condition(s):\n";
+        if (cond1) cout << " - Between 0 and 9\n";
+        if (cond2) cout << " - 2x < 20 AND x-2 > -2\n";
+        if (cond3) cout << " - (x-1) > 1 AND x/2 < 10\n";
+        if (cond4) cout << " - Value equals 111\n";
+    }
+
+    cout << "\nResult: ";
+    cout << (answer ? "THAT'S TRUE " : "THAT'S NOT TRUE") << endl;
+
+    return 0;
+}
