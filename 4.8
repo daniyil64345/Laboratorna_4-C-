@@ -1,0 +1,53 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main() {
+    double n1, n2;
+
+    cout << "=============================\n";
+    cout << "     FRACTION COMPARATOR\n";
+    cout << "=============================\n";
+
+    cout << "Enter first number:\n";
+
+    if (!(cin >> n1)) {
+        cout << "Invalid input! Please enter a numeric value.\n";
+        return 0;
+    }
+
+    cout << "Enter second number:\n";
+    if (!(cin >> n2)) {
+        cout << "Invalid input! Please enter a numeric value.\n";
+        return 0;
+    }
+    if (n1 == 0 || n2 == 0) {
+        cout << "Error: Division by zero is not allowed!" << endl;
+        return 0;
+    }
+
+    double a = 1.0 / n1;
+    double b = 1.0 / n2;
+
+    double epsilon = 0.000001;
+
+    cout << "\n1/" << n1 << " = " << a << endl;
+    cout << "1/" << n2 << " = " << b << endl;
+
+    cout << "\nComparing with precision ? = " << epsilon << " ...\n";
+
+    double diff = fabs(a - b);
+
+    if (diff < epsilon) {
+        cout << "Numbers are almost equal." << endl;
+        cout << "(Difference = " << diff << ", which is < epsilon)" << endl;
+    }
+    else {
+        cout << "Numbers are different." << endl;
+        cout << "(Difference = " << diff << ", which is >= epsilon)" << endl;
+    }
+
+    cout << "=============================\n";
+
+    return 0;
+}
